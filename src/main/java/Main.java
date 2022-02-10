@@ -16,15 +16,9 @@ public class Main {
         integerNewLinkedList.addNode(8);
         integerNewLinkedList.addNode(9);
         integerNewLinkedList.addNode(10);
-      //  integerNewLinkedList.addNode(5);
 
         integerNewLinkedList.addByIndex(4,15);
-        integerNewLinkedList.delete(7);
-
-
-
-
-
+        integerNewLinkedList.delete(3);
 
         integerNewLinkedList.display();
         System.out.println();

@@ -1,5 +1,3 @@
-import java.util.Iterator;
-
 public class NewLinkedList<T> {
 
     private long size;
@@ -46,14 +44,13 @@ public class NewLinkedList<T> {
         Node current = head;
         for (int i = 0; i < index; i++) {
             current = current.next;
-
         }
         System.out.println(current.data);
     }
 
     public void addByIndex(int index, T data) {
         this.data = data;
-        Object value;
+        Object value, value1;
         this.end = end;
 
         Node current = head;
@@ -62,21 +59,20 @@ public class NewLinkedList<T> {
             end.data = data;
             size++;
         } else {
-            for (int i = 1; i < size; i++) {
-                if (index == i) {
-                    //   value = current.data;
+            for (int i = 1; i < size; i++) {  // не получается сделать вставку со сдвигом всех элементов от места вставки, т
+                if (index == i) {              // получается только сдвиг на 1-2 элемента и то без цикла
+                    value = current.data;
                     current.data = data;
-//                    value1 = current.next.data;
-//                    current.next.data = value;
-//
+                    value1= current.next.data;
+                    current.next.data = value;
+                    current.next.next.data=value1;
                     size++;
                 }
-                current = current.next;
+                  current=current.next;
 
             }
         }
     }
-
     public void delete(int index) {
         this.data = data;
         Object value;
@@ -90,18 +86,19 @@ public class NewLinkedList<T> {
         } else {
             for (int i = 1; i < size; i++) {
                 if (index == i) {
-                    current.data = null;
-
-
+                    current.data= current.next.data  ;
+                    size--;
+                    current.next = current.next.next;
                 }
-                current = current.next;
+                    current = current.next;
+
             }
+
         }
     }
 }
 
 
-// value1 = current.next.data;
 
 
 
