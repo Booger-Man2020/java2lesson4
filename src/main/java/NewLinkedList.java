@@ -49,28 +49,17 @@ public class NewLinkedList<T> {
     }
 
     public void addByIndex(int index, T data) {
-        this.data = data;
-        Object value, value1;
-        this.end = end;
-
+        Node newNode = new Node(data);
         Node current = head;
+        int lenght = 1;
 
-        if (index == size) {
-            end.data = data;
-            size++;
-        } else {
-            for (int i = 1; i < size; i++) {  // не получается сделать вставку со сдвигом всех элементов от места вставки, т
-                if (index == i) {              // получается только сдвиг на 1-2 элемента и то без цикла
-                    value = current.data;
-                    current.data = data;
-                    value1= current.next.data;
-                    current.next.data = value;
-                    current.next.next.data=value1;
-                    size++;
-                }
-                  current=current.next;
-
+        while (head.next != null){
+            if (index == lenght++){
+                newNode.next = current.next;
+                current.next = newNode;
+                return;
             }
+            current = current.next;
         }
     }
     public void delete(int index) {
